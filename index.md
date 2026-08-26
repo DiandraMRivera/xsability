@@ -1,8 +1,9 @@
 ---
 title: 'Accessibility Remediation of Mathematical Documents'
 subtitle: '**Using Mathpix, Markdown and Pandoc**'
-author: 'Diandra Rivera & Lexi Murray[^thankyou]'
-width: '50%'
+author: 
+- 'Diandra Rivera, PhD Candidate, Yale University[^thankyou]'
+maxwidth: '75%'
 fontsize: '14pt'
 linkcolor: 'blue'
 linkReferences: true
@@ -10,13 +11,13 @@ linkReferences: true
 
 This learning module will teach accessibility professionals how to use MathPix, Pandoc, and Markdown to remediate inaccessible mathematical documents to [WCAG AA](https://www.wcag.com/resource/what-is-wcag/#The_Three_Levels_of_WCAG_Conformance_A_AA_and_AAA) compliance. For someone completely unfamiliar with the topic, it should take 6-10 hours to complete. [Please  @sec:readme] before you get started.
 
-1. [Start Here](https://diandramrivera.github.io/xsability/Beginners.html): After reading the introduction below, get started here (~30-60 minutes)
+1. [The Bare Minimum](https://diandramrivera.github.io/xsability/Beginners.html): (~60 minutes) This short section will provide the absolute bare minimum requirements for remediating inaccessible mathematical PDF's into accessible documents using MathPix and Microsoft Word.
 
    a. Download [this example](https://diandramrivera.github.io/xsability/ChavesPg28.pdf) and follow along.
 
    b. You will need to submit a remediated copy of the above to your superior to begin remediation tasks. Don't worry! We'll break it down as we go! C:
 
-2. [Main Course](https://diandramrivera.github.io/xsability/MathRemediation.html): Here, we'll learn how to make mathematical documents *truly* accessible. No, it's not just converting file formats. (~3-4 hours)
+2. [Main Course](https://diandramrivera.github.io/xsability/MathRemediation.html):(~5 hours) Sometimes the hardest part of doing something correctly is learning the easiest way to do it. Here, we'll learn how to make mathematical documents *truly* accessible without having to fight Word formatting errors.
 
 3. [Practice File](https://diandramrivera.github.io/xsability/mFigPractice.pdf): Remediate this PDF using what you learned above. If you are new, this should take about 2 hours, and you absolutely need to reference section 5 in the main course.
 
@@ -26,6 +27,9 @@ This learning module will teach accessibility professionals how to use MathPix, 
 
    b. [Markdown Markup](https://diandramrivera.github.io/xsability/mFigPracticeMarkup.html) (copy and paste this into VS Code).
 
+<!--
+
+
 5. This workflow can also produce HTML presentations:
 
    a. [Accessible Presentation Slides](https://diandramrivera.github.io/xsability/htmlPresentation.html)
@@ -33,6 +37,8 @@ This learning module will teach accessibility professionals how to use MathPix, 
    b. [Markdown Markup](https://diandramrivera.github.io/xsability/htmlPresentationMarkup.html)
 
    However, navigability of these slides is highly dependent on browser and screen reader settings, and it's often best to treat presentations as any other document and label each slide with `# Slide Title {#sec:theslidetitle}` so Pandoc can take care of numbering (don't get stressed reading that - we'll learn what this jargon means in the [main course](https://diandramrivera.github.io/xsability/MathRemediation.html)).
+
+-->
 
 # Introduction {#sec:readme label="read the short introduction below"}
 
@@ -46,6 +52,8 @@ Now you understand what it is like to read accessible math with assistive techno
 
 The easiest way to do this, to our knowledge, is to use Mathpix, Markdown, Pandoc, and VS Code to reauthor inaccessible PDF/Word formats into accessible HTML documents. We use Mathpix → Markdown → Pandoc (and Pandoc-crossref) → HTML to automatically transcribe TeX math markup into MathML/MathJax to **maximize accessibility** of what is written while **minimizing author effort** required to organize it in an understandable way (e.g. completely describing figures in a navigable manner).
 
+The second easiest way to do this is to use Microsoft Word, which utilizes Microsoft's proprietary Office MathMl (OMML) format. However, transcription of PDF's into text using optical character recognition *will always introduce formatting errors*, and these errors can become quite difficult to handle due to Word's internal formatting engine. We prefer Pandoc Markdown to generate HTML **because it separates authoring from formatting entirely**, permitting focus on accessibility and logical reading order alone. We include a brief instruction on the use of Microsoft Word due to the familiarity that many already have with this authoring tool.
+
 ## You Will Become a Better Author
 
 This isn't just about accessibility. Completion of this course **will** make you a better author by:
@@ -58,4 +66,4 @@ This isn't just about accessibility. Completion of this course **will** make you
 
 These tools will make your authoring life *easy*. The reader has much to gain from finishing this course.
 
-[^thankyou]: With special acknowledgement to Cynthia Jones for incredibly helpful error finding, EK Im for the feedback and instruction regarding MathPix Snips, and an exceptionally warm thank you to [Nikolay Yakimov](https://github.com/lierdakil) for addressing certain issues with pandoc-crossref.
+[^thankyou]: With special acknowledgement to Cynthia Jones for incredibly helpful error finding, EK Im for the feedback and instruction regarding MathPix Snips, Lexi Murray for helpful spelling suggestions and clarity with definitions, and an exceptionally warm thank you to [Nikolay Yakimov](https://github.com/lierdakil) for addressing certain issues with pandoc-crossref.

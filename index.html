@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta name="author" content="Diandra Rivera &amp; Lexi Murray" />
+  <meta name="author" content="Diandra Rivera, PhD Candidate, Yale University." />
   <title>Accessibility Remediation of Mathematical Documents</title>
   <style>
     /* Default styles provided by pandoc.
@@ -17,7 +17,7 @@
     }
     body {
       margin: 0 auto;
-      max-width: 36em;
+      max-width: 75%;
       padding-left: 50px;
       padding-right: 50px;
       padding-top: 50px;
@@ -179,8 +179,9 @@
 Documents</h1>
 <p class="subtitle"><strong>Using Mathpix, Markdown and
 Pandoc</strong></p>
-<p class="author">Diandra Rivera &amp; Lexi Murray<a href="#fn1"
-class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p class="author">Diandra Rivera, PhD Candidate, Yale University.<a
+href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a></p>
 </header>
 <p>This learning module will teach accessibility professionals how to
 use MathPix, Pandoc, and Markdown to remediate inaccessible mathematical
@@ -191,9 +192,11 @@ should take 6-10 hours to complete. Please <a href="#sec:readme">read
 the short introduction below</a> before you get started.</p>
 <ol type="1">
 <li><p><a
-href="https://diandramrivera.github.io/xsability/Beginners.html">Start
-Here</a>: After reading the introduction below, get started here (~30-60
-minutes)</p>
+href="https://diandramrivera.github.io/xsability/Beginners.html">The
+Bare Minimum</a>: (~60 minutes) This short section will provide the
+absolute bare minimum requirements for remediating inaccessible
+mathematical PDF’s into accessible documents using MathPix and Microsoft
+Word.</p>
 <ol type="a">
 <li><p>Download <a
 href="https://diandramrivera.github.io/xsability/ChavesPg28.pdf">this
@@ -204,9 +207,10 @@ we go! C:</p></li>
 </ol></li>
 <li><p><a
 href="https://diandramrivera.github.io/xsability/MathRemediation.html">Main
-Course</a>: Here, we’ll learn how to make mathematical documents
-<em>truly</em> accessible. No, it’s not just converting file formats.
-(~3-4 hours)</p></li>
+Course</a>:(~5 hours) Sometimes the hardest part of doing something
+correctly is learning the easiest way to do it. Here, we’ll learn how to
+make mathematical documents <em>truly</em> accessible without having to
+fight Word formatting errors.</p></li>
 <li><p><a
 href="https://diandramrivera.github.io/xsability/mFigPractice.pdf">Practice
 File</a>: Remediate this PDF using what you learned above. If you are
@@ -221,24 +225,19 @@ Practice File</a>.</p></li>
 href="https://diandramrivera.github.io/xsability/mFigPracticeMarkup.html">Markdown
 Markup</a> (copy and paste this into VS Code).</p></li>
 </ol></li>
-<li><p>This workflow can also produce HTML presentations:</p>
-<ol type="a">
-<li><p><a
-href="https://diandramrivera.github.io/xsability/htmlPresentation.html">Accessible
-Presentation Slides</a></p></li>
-<li><p><a
-href="https://diandramrivera.github.io/xsability/htmlPresentationMarkup.html">Markdown
-Markup</a></p></li>
 </ol>
-<p>However, navigability of these slides is highly dependent on browser
-and screen reader settings, and it’s often best to treat presentations
-as any other document and label each slide with
-<code># Slide Title {#sec:theslidetitle}</code> so Pandoc can take care
-of numbering (don’t get stressed reading that - we’ll learn what this
-jargon means in the <a
-href="https://diandramrivera.github.io/xsability/MathRemediation.html">main
-course</a>).</p></li>
-</ol>
+<!--
+
+
+5. This workflow can also produce HTML presentations:
+
+   a. [Accessible Presentation Slides](https://diandramrivera.github.io/xsability/htmlPresentation.html)
+
+   b. [Markdown Markup](https://diandramrivera.github.io/xsability/htmlPresentationMarkup.html)
+
+   However, navigability of these slides is highly dependent on browser and screen reader settings, and it's often best to treat presentations as any other document and label each slide with `# Slide Title {#sec:theslidetitle}` so Pandoc can take care of numbering (don't get stressed reading that - we'll learn what this jargon means in the [main course](https://diandramrivera.github.io/xsability/MathRemediation.html)).
+
+-->
 <h1 data-label="read the short introduction below"
 id="sec:readme">Introduction</h1>
 <p>You arrive to math class to find a substitute professor that has had
@@ -283,6 +282,16 @@ MathML/MathJax to <strong>maximize accessibility</strong> of what is
 written while <strong>minimizing author effort</strong> required to
 organize it in an understandable way (e.g. completely describing figures
 in a navigable manner).</p>
+<p>The second easiest way to do this is to use Microsoft Word, which
+utilizes Microsoft’s proprietary Office MathMl (OMML) format. However,
+transcription of PDF’s into text using optical character recognition
+<em>will always introduce formatting errors</em>, and these errors can
+become quite difficult to handle due to Word’s internal formatting
+engine. We prefer Pandoc Markdown to generate HTML <strong>because it
+separates authoring from formatting entirely</strong>, permitting focus
+on accessibility and logical reading order alone. We include a brief
+instruction on the use of Microsoft Word due to the familiarity that
+many already have with this authoring tool.</p>
 <h2 id="you-will-become-a-better-author">You Will Become a Better
 Author</h2>
 <p>This isn’t just about accessibility. Completion of this course
@@ -308,7 +317,8 @@ role="doc-endnotes">
 <ol>
 <li id="fn1"><p>With special acknowledgement to Cynthia Jones for
 incredibly helpful error finding, EK Im for the feedback and instruction
-regarding MathPix Snips, and an exceptionally warm thank you to <a
+regarding MathPix Snips, Lexi Murray for helpful spelling suggestions
+and clarity with definitions, and an exceptionally warm thank you to <a
 href="https://github.com/lierdakil">Nikolay Yakimov</a> for addressing
 certain issues with pandoc-crossref.<a href="#fnref1"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
