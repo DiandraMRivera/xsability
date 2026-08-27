@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta name="author" content="Diandra Rivera, PhD Candidate, Yale University." />
+  <meta name="author" content="Diandra Rivera, PhD Candidate, Yale University()" />
   <title>Accessibility Remediation of Mathematical Documents</title>
   <style>
     /* Default styles provided by pandoc.
@@ -179,9 +179,12 @@
 Documents</h1>
 <p class="subtitle"><strong>Using Mathpix, Markdown and
 Pandoc</strong></p>
-<p class="author">Diandra Rivera, PhD Candidate, Yale University.<a
-href="#fn1" class="footnote-ref" id="fnref1"
-role="doc-noteref"><sup>1</sup></a></p>
+<p class="author">Diandra Rivera, PhD Candidate, Yale
+University<sup>(</sup><a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a><sup>)</sup></p>
+<p class="date">Updated August 27, 2026<sup>(</sup><a href="#fn2"
+class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a><sup>)</sup></p>
 </header>
 <p>This learning module will teach accessibility professionals how to
 use MathPix, Pandoc, and Markdown to remediate inaccessible mathematical
@@ -210,7 +213,18 @@ href="https://diandramrivera.github.io/xsability/MathRemediation.html">Main
 Course</a>:(~5 hours) Sometimes the hardest part of doing something
 correctly is learning the easiest way to do it. Here, we’ll learn how to
 make mathematical documents <em>truly</em> accessible without having to
-fight Word formatting errors.</p></li>
+fight Word formatting errors.</p>
+<ol type="a">
+<li>You need to save the following seemingly blank page as “math.html”
+into your working folder: <a
+href="https://diandramrivera.github.io/xsability/math.html">math.html</a>
+(for example, by right clicking and selecting ‘save as’ in your
+browser). This html file contains a script that loads MathJax if the
+internet is available, and provides features that augment the baseline
+accessibility given by MathML. If that sounds like <em>complete
+nonsense</em>, again, don’t worry! We’ll learn about what this jargon
+means in the main course.</li>
+</ol></li>
 <li><p><a
 href="https://diandramrivera.github.io/xsability/mFigPractice.pdf">Practice
 File</a>: Remediate this PDF using what you learned above. If you are
@@ -322,6 +336,25 @@ and clarity with definitions, and an exceptionally warm thank you to <a
 href="https://github.com/lierdakil">Nikolay Yakimov</a> for addressing
 certain issues with pandoc-crossref.<a href="#fnref1"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Major Changes:</p>
+<ul>
+<li>8/27/26: switched from embedded MathJax to embedded MathML with
+Optional MathJax (via math.html).
+<ul>
+<li>This method sequentially converts the LaTeX markup to MathML and
+<em>then</em> loads MathJax if the internet is present.</li>
+<li>The functionality is identical for most users, but this avoids a
+potential catastrophe where browser cache deletion and/or loss of
+internet connection reverts the math back to or fails to convert from
+LaTeX math markup.</li>
+<li>see the main course sections <a
+href="https://diandramrivera.github.io/xsability/MathRemediation.html#using-pandoc">about
+using pandoc</a> and the <a
+href="https://diandramrivera.github.io/xsability/MathRemediation.html#sec:pandocbest">best
+pandoc practices</a> for commandline changes and file requirements.</li>
+</ul></li>
+</ul>
+<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></li>
 </ol>
 </section>
 </body>

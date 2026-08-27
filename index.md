@@ -1,8 +1,9 @@
 ---
 title: 'Accessibility Remediation of Mathematical Documents'
 subtitle: '**Using Mathpix, Markdown and Pandoc**'
-author: 
-- 'Diandra Rivera, PhD Candidate, Yale University[^thankyou]'
+date: Updated August 27, 2026^(^[^changelog]^)^
+author:
+- 'Diandra Rivera, PhD Candidate, Yale University^(^[^thankyou]^)^'
 maxwidth: '75%'
 fontsize: '14pt'
 linkcolor: 'blue'
@@ -18,6 +19,8 @@ This learning module will teach accessibility professionals how to use MathPix, 
    b. You will need to submit a remediated copy of the above to your superior to begin remediation tasks. Don't worry! We'll break it down as we go! C:
 
 2. [Main Course](https://diandramrivera.github.io/xsability/MathRemediation.html):(~5 hours) Sometimes the hardest part of doing something correctly is learning the easiest way to do it. Here, we'll learn how to make mathematical documents *truly* accessible without having to fight Word formatting errors.
+
+   a. You need to save the following seemingly blank page as "math.html" into your working folder: [math.html](https://diandramrivera.github.io/xsability/math.html) (for example, by right clicking and selecting 'save as' in your browser). This html file contains a script that loads MathJax if the internet is available, and provides features that augment the baseline accessibility given by MathML. If that sounds like *complete nonsense*, again, don't worry! We'll learn about what this jargon means in the main course.
 
 3. [Practice File](https://diandramrivera.github.io/xsability/mFigPractice.pdf): Remediate this PDF using what you learned above. If you are new, this should take about 2 hours, and you absolutely need to reference section 5 in the main course.
 
@@ -67,3 +70,10 @@ This isn't just about accessibility. Completion of this course **will** make you
 These tools will make your authoring life *easy*. The reader has much to gain from finishing this course.
 
 [^thankyou]: With special acknowledgement to Cynthia Jones for incredibly helpful error finding, EK Im for the feedback and instruction regarding MathPix Snips, Lexi Murray for helpful spelling suggestions and clarity with definitions, and an exceptionally warm thank you to [Nikolay Yakimov](https://github.com/lierdakil) for addressing certain issues with pandoc-crossref.
+
+[^changelog]: Major Changes:
+
+      - 8/27/26: switched from embedded MathJax to embedded MathML with Optional MathJax (via math.html). 
+        - This method sequentially converts the LaTeX markup to MathML and *then* loads MathJax if the internet is present.
+        - The functionality is identical for most users, but this avoids a potential catastrophe where browser cache deletion and/or loss of internet connection reverts the math back to or fails to convert from LaTeX math markup.
+        - see the main course sections [about using pandoc](https://diandramrivera.github.io/xsability/MathRemediation.html#using-pandoc) and the [best pandoc practices](https://diandramrivera.github.io/xsability/MathRemediation.html#sec:pandocbest) for commandline changes and file requirements.
