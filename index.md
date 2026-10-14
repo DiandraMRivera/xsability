@@ -30,10 +30,14 @@ This learning module will teach accessibility professionals how to use MathPix, 
 
    b. [Markdown Markup](https://diandramrivera.github.io/xsability/mFigPracticeMarkup.html) (copy and paste this into VS Code).
 
+5. Special Topics
+
+   a. [Tables and Complex Tables](https://diandramrivera.github.io/xsability/tableTutorial.html) will explain how Pandoc and Crossref can be used to make cross-referencable 'simple' and 'complex' tables. The associated practice file can be [accessed here](https://diandramrivera.github.io/xsability/statisticalchonk.pdf).
+
 <!--
 
 
-5. This workflow can also produce HTML presentations:
+1. This workflow can also produce HTML presentations:
 
    a. [Accessible Presentation Slides](https://diandramrivera.github.io/xsability/htmlPresentation.html)
 
@@ -72,6 +76,9 @@ These tools will make your authoring life *easy*. The reader has much to gain fr
 [^thankyou]: With special acknowledgement to Cynthia Jones for incredibly helpful error finding, EK Im for the feedback and instruction regarding MathPix Snips, Lexi Murray for helpful spelling suggestions and clarity with definitions, and an exceptionally warm thank you to [Nikolay Yakimov](https://github.com/lierdakil) for addressing certain issues with pandoc-crossref.
 
 [^changelog]: Major Changes:
+
+      - 10/14/26: By popular demand, a [tutorial about tables](https://diandramrivera.github.io/xsability/tableTutorial.html) has been added to explain how to make complex tables.
+         - an associated [practice file](https://diandramrivera.github.io/xsability/statisticalchonk.pdf) well verify your understanding.
 
       - 8/27/26: switched from embedded MathJax to embedded MathML with Optional MathJax (via math.html). 
         - This method sequentially converts the LaTeX markup to MathML and *then* loads MathJax if the internet is present.

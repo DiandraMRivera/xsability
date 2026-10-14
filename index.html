@@ -7,171 +7,168 @@
   <meta name="author" content="Diandra Rivera, PhD Candidate, Yale University()" />
   <title>Accessibility Remediation of Mathematical Documents</title>
   <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
-    html {
-      font-size: 14pt;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 75%;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 12px;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      html {
-        background-color: white;
-      }
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: blue;
-    }
-    a:visited {
-      color: blue;
-    }
-    img {
-      max-width: 100%;
-    }
-    svg {
-      height: auto;
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      white-space: pre-wrap;
-      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-      font-size: 85%;
-      margin: 0;
-      hyphens: manual;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      border: none;
-      border-top: 1px solid #1a1a1a;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-  </style>
+
+html {
+font-size: 14pt;
+color: #1a1a1a;
+background-color: #fdfdfd;
+}
+body {
+margin: 0 auto;
+max-width: 75%;
+padding-left: 50px;
+padding-right: 50px;
+padding-top: 50px;
+padding-bottom: 50px;
+hyphens: auto;
+overflow-wrap: break-word;
+text-rendering: optimizeLegibility;
+font-kerning: normal;
+}
+@media (max-width: 600px) {
+body {
+font-size: 0.9em;
+padding: 12px;
+}
+h1 {
+font-size: 1.8em;
+}
+}
+@media print {
+html {
+background-color: white;
+}
+body {
+background-color: transparent;
+color: black;
+font-size: 12pt;
+}
+p, h2, h3 {
+orphans: 3;
+widows: 3;
+}
+h2, h3, h4 {
+page-break-after: avoid;
+}
+}
+p {
+margin: 1em 0;
+}
+a {
+color: blue;
+}
+a:visited {
+color: blue;
+}
+img {
+max-width: 100%;
+}
+svg {
+height: auto;
+max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+margin-top: 1.4em;
+}
+h5, h6 {
+font-size: 1em;
+font-style: italic;
+}
+h6 {
+font-weight: normal;
+}
+ol, ul {
+padding-left: 1.7em;
+margin-top: 1em;
+}
+li > ol, li > ul {
+margin-top: 0;
+}
+blockquote {
+margin: 1em 0 1em 1.7em;
+padding-left: 1em;
+border-left: 2px solid #e6e6e6;
+color: #606060;
+}
+code {
+white-space: pre-wrap;
+font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+font-size: 85%;
+margin: 0;
+hyphens: manual;
+}
+pre {
+margin: 1em 0;
+overflow: auto;
+}
+pre code {
+padding: 0;
+overflow: visible;
+overflow-wrap: normal;
+}
+.sourceCode {
+background-color: transparent;
+overflow: visible;
+}
+hr {
+border: none;
+border-top: 1px solid #1a1a1a;
+height: 1px;
+margin: 1em 0;
+}
+table {
+margin: 1em 0;
+border-collapse: collapse;
+width: 100%;
+overflow-x: auto;
+display: block;
+font-variant-numeric: lining-nums tabular-nums;
+}
+table caption {
+margin-bottom: 0.75em;
+}
+tbody {
+margin-top: 0.5em;
+border-top: 1px solid #1a1a1a;
+border-bottom: 1px solid #1a1a1a;
+}
+th {
+border-top: 1px solid #1a1a1a;
+padding: 0.25em 0.5em 0.25em 0.5em;
+}
+td {
+padding: 0.125em 0.5em 0.25em 0.5em;
+}
+header {
+margin-bottom: 4em;
+text-align: center;
+}
+#TOC li {
+list-style: none;
+}
+#TOC ul {
+padding-left: 1.3em;
+}
+#TOC > ul {
+padding-left: 0;
+}
+#TOC a:not(:hover) {
+text-decoration: none;
+}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
 </head>
 <body>
 <header id="title-block-header">
@@ -180,44 +177,36 @@ Documents</h1>
 <p class="subtitle"><strong>Using Mathpix, Markdown and
 Pandoc</strong></p>
 <p class="author">Diandra Rivera, PhD Candidate, Yale
-University<sup>(</sup><a href="#fn1" class="footnote-ref" id="fnref1"
-role="doc-noteref"><sup>1</sup></a><sup>)</sup></p>
-<p class="date">Updated August 27, 2026<sup>(</sup><a href="#fn2"
-class="footnote-ref" id="fnref2"
-role="doc-noteref"><sup>2</sup></a><sup>)</sup></p>
+University<sup>(</sup><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a><sup>)</sup></p>
+<p class="date">Updated August 27, 2026<sup>(</sup><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a><sup>)</sup></p>
 </header>
 <p>This learning module will teach accessibility professionals how to
 use MathPix, Pandoc, and Markdown to remediate inaccessible mathematical
-documents to <a
-href="https://www.wcag.com/resource/what-is-wcag/#The_Three_Levels_of_WCAG_Conformance_A_AA_and_AAA">WCAG
+documents to <a href="https://www.wcag.com/resource/what-is-wcag/#The_Three_Levels_of_WCAG_Conformance_A_AA_and_AAA">WCAG
 AA</a> compliance. For someone completely unfamiliar with the topic, it
 should take 6-10 hours to complete. Please <a href="#sec:readme">read
 the short introduction below</a> before you get started.</p>
 <ol type="1">
-<li><p><a
-href="https://diandramrivera.github.io/xsability/Beginners.html">The
+<li><p><a href="https://diandramrivera.github.io/xsability/Beginners.html">The
 Bare Minimum</a>: (~60 minutes) This short section will provide the
 absolute bare minimum requirements for remediating inaccessible
 mathematical PDF’s into accessible documents using MathPix and Microsoft
 Word.</p>
 <ol type="a">
-<li><p>Download <a
-href="https://diandramrivera.github.io/xsability/ChavesPg28.pdf">this
+<li><p>Download <a href="https://diandramrivera.github.io/xsability/ChavesPg28.pdf">this
 example</a> and follow along.</p></li>
 <li><p>You will need to submit a remediated copy of the above to your
 superior to begin remediation tasks. Don’t worry! We’ll break it down as
 we go! C:</p></li>
 </ol></li>
-<li><p><a
-href="https://diandramrivera.github.io/xsability/MathRemediation.html">Main
+<li><p><a href="https://diandramrivera.github.io/xsability/MathRemediation.html">Main
 Course</a>:(~5 hours) Sometimes the hardest part of doing something
 correctly is learning the easiest way to do it. Here, we’ll learn how to
 make mathematical documents <em>truly</em> accessible without having to
 fight Word formatting errors.</p>
 <ol type="a">
 <li>You need to save the following seemingly blank page as “math.html”
-into your working folder: <a
-href="https://diandramrivera.github.io/xsability/math.html">math.html</a>
+into your working folder: <a href="https://diandramrivera.github.io/xsability/math.html">math.html</a>
 (for example, by right clicking and selecting ‘save as’ in your
 browser). This html file contains a script that loads MathJax if the
 internet is available, and provides features that augment the baseline
@@ -225,25 +214,30 @@ accessibility given by MathML. If that sounds like <em>complete
 nonsense</em>, again, don’t worry! We’ll learn about what this jargon
 means in the main course.</li>
 </ol></li>
-<li><p><a
-href="https://diandramrivera.github.io/xsability/mFigPractice.pdf">Practice
+<li><p><a href="https://diandramrivera.github.io/xsability/mFigPractice.pdf">Practice
 File</a>: Remediate this PDF using what you learned above. If you are
 new, this should take about 2 hours, and you absolutely need to
 reference section 5 in the main course.</p></li>
 <li><p>The above has an answer key you can test with NVDA:</p>
 <ol type="a">
-<li><p><a
-href="https://diandramrivera.github.io/xsability/mFigPracticeRemediated.html">Remediated
+<li><p><a href="https://diandramrivera.github.io/xsability/mFigPracticeRemediated.html">Remediated
 Practice File</a>.</p></li>
-<li><p><a
-href="https://diandramrivera.github.io/xsability/mFigPracticeMarkup.html">Markdown
+<li><p><a href="https://diandramrivera.github.io/xsability/mFigPracticeMarkup.html">Markdown
 Markup</a> (copy and paste this into VS Code).</p></li>
+</ol></li>
+<li><p>Special Topics</p>
+<ol type="a">
+<li><a href="https://diandramrivera.github.io/xsability/tableTutorial.html">Tables
+and Complex Tables</a> will explain how Pandoc and Crossref can be used
+to make cross-referencable ‘simple’ and ‘complex’ tables. The associated
+practice file can be <a href="https://diandramrivera.github.io/xsability/statisticalchonk.pdf">accessed
+here</a>.</li>
 </ol></li>
 </ol>
 <!--
 
 
-5. This workflow can also produce HTML presentations:
+1. This workflow can also produce HTML presentations:
 
    a. [Accessible Presentation Slides](https://diandramrivera.github.io/xsability/htmlPresentation.html)
 
@@ -252,8 +246,7 @@ Markup</a> (copy and paste this into VS Code).</p></li>
    However, navigability of these slides is highly dependent on browser and screen reader settings, and it's often best to treat presentations as any other document and label each slide with `# Slide Title {#sec:theslidetitle}` so Pandoc can take care of numbering (don't get stressed reading that - we'll learn what this jargon means in the [main course](https://diandramrivera.github.io/xsability/MathRemediation.html)).
 
 -->
-<h1 data-label="read the short introduction below"
-id="sec:readme">Introduction</h1>
+<h1 data-label="read the short introduction below" id="sec:readme">Introduction</h1>
 <p>You arrive to math class to find a substitute professor that has had
 too much coffee. They start rambling and scribbling at lightning speed,
 and most of what they are doing is fervorous nonsense. You raise your
@@ -280,8 +273,7 @@ are satisfied.</p>
 assistive technology. Accessible math is called “MathML” or “MathJax”.
 Neither are a file format or program – they are simply a way of writing
 math that assistive technology can understand. The only way to remediate
-mathematical documents to be conformant with <a
-href="https://www.wcag.com/resource/what-is-wcag/#The_Three_Levels_of_WCAG_Conformance_A_AA_and_AAA">WCAG
+mathematical documents to be conformant with <a href="https://www.wcag.com/resource/what-is-wcag/#The_Three_Levels_of_WCAG_Conformance_A_AA_and_AAA">WCAG
 AA</a> accessibility standards (e.g. to have MathML or MathJax) is to
 re-author inaccessible documents to include MathML or Mathjax, along
 with providing sufficient alt text, captions, descriptive tools like
@@ -325,19 +317,22 @@ that sort of thing.</li>
 </ol>
 <p>These tools will make your authoring life <em>easy</em>. The reader
 has much to gain from finishing this course.</p>
-<section id="footnotes" class="footnotes footnotes-end-of-document"
-role="doc-endnotes">
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr />
 <ol>
 <li id="fn1"><p>With special acknowledgement to Cynthia Jones for
 incredibly helpful error finding, EK Im for the feedback and instruction
 regarding MathPix Snips, Lexi Murray for helpful spelling suggestions
-and clarity with definitions, and an exceptionally warm thank you to <a
-href="https://github.com/lierdakil">Nikolay Yakimov</a> for addressing
-certain issues with pandoc-crossref.<a href="#fnref1"
-class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+and clarity with definitions, and an exceptionally warm thank you to <a href="https://github.com/lierdakil">Nikolay Yakimov</a> for addressing
+certain issues with pandoc-crossref.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>Major Changes:</p>
 <ul>
+<li>10/14/26: By popular demand, a <a href="https://diandramrivera.github.io/xsability/tableTutorial.html">tutorial
+about tables</a> has been added to explain how to make complex tables.
+<ul>
+<li>an associated <a href="https://diandramrivera.github.io/xsability/statisticalchonk.pdf">practice
+file</a> well verify your understanding.</li>
+</ul></li>
 <li>8/27/26: switched from embedded MathJax to embedded MathML with
 Optional MathJax (via math.html).
 <ul>
@@ -347,10 +342,8 @@ Optional MathJax (via math.html).
 potential catastrophe where browser cache deletion and/or loss of
 internet connection reverts the math back to or fails to convert from
 LaTeX math markup.</li>
-<li>see the main course sections <a
-href="https://diandramrivera.github.io/xsability/MathRemediation.html#using-pandoc">about
-using pandoc</a> and the <a
-href="https://diandramrivera.github.io/xsability/MathRemediation.html#sec:pandocbest">best
+<li>see the main course sections <a href="https://diandramrivera.github.io/xsability/MathRemediation.html#using-pandoc">about
+using pandoc</a> and the <a href="https://diandramrivera.github.io/xsability/MathRemediation.html#sec:pandocbest">best
 pandoc practices</a> for commandline changes and file requirements.</li>
 </ul></li>
 </ul>

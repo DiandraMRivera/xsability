@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Diandra M Rivera" />
+  <meta name="dcterms.date" content="2026-10-14" />
+  <title>Accessible Complex Tables</title>
+  <style>
+
+html {
+font-size: 14pt;
+color: #1a1a1a;
+background-color: #fdfdfd;
+}
+body {
+margin: 0 auto;
+max-width: 95%;
+padding-left: 50px;
+padding-right: 50px;
+padding-top: 50px;
+padding-bottom: 50px;
+hyphens: auto;
+overflow-wrap: break-word;
+text-rendering: optimizeLegibility;
+font-kerning: normal;
+}
+@media (max-width: 600px) {
+body {
+font-size: 0.9em;
+padding: 12px;
+}
+h1 {
+font-size: 1.8em;
+}
+}
+@media print {
+html {
+background-color: white;
+}
+body {
+background-color: transparent;
+color: black;
+font-size: 12pt;
+}
+p, h2, h3 {
+orphans: 3;
+widows: 3;
+}
+h2, h3, h4 {
+page-break-after: avoid;
+}
+}
+p {
+margin: 1em 0;
+}
+a {
+color: blue;
+}
+a:visited {
+color: blue;
+}
+img {
+max-width: 100%;
+}
+svg {
+height: auto;
+max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+margin-top: 1.4em;
+}
+h5, h6 {
+font-size: 1em;
+font-style: italic;
+}
+h6 {
+font-weight: normal;
+}
+ol, ul {
+padding-left: 1.7em;
+margin-top: 1em;
+}
+li > ol, li > ul {
+margin-top: 0;
+}
+blockquote {
+margin: 1em 0 1em 1.7em;
+padding-left: 1em;
+border-left: 2px solid #e6e6e6;
+color: #606060;
+}
+code {
+white-space: pre-wrap;
+font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+font-size: 85%;
+margin: 0;
+hyphens: manual;
+}
+pre {
+margin: 1em 0;
+overflow: auto;
+}
+pre code {
+padding: 0;
+overflow: visible;
+overflow-wrap: normal;
+}
+.sourceCode {
+background-color: transparent;
+overflow: visible;
+}
+hr {
+border: none;
+border-top: 1px solid #1a1a1a;
+height: 1px;
+margin: 1em 0;
+}
+table {
+margin: 1em 0;
+border-collapse: collapse;
+width: 100%;
+overflow-x: auto;
+display: block;
+font-variant-numeric: lining-nums tabular-nums;
+}
+table caption {
+margin-bottom: 0.75em;
+}
+tbody {
+margin-top: 0.5em;
+border-top: 1px solid #1a1a1a;
+border-bottom: 1px solid #1a1a1a;
+}
+th {
+border-top: 1px solid #1a1a1a;
+padding: 0.25em 0.5em 0.25em 0.5em;
+}
+td {
+padding: 0.125em 0.5em 0.25em 0.5em;
+}
+header {
+margin-bottom: 4em;
+text-align: center;
+}
+#TOC li {
+list-style: none;
+}
+#TOC ul {
+padding-left: 1.3em;
+}
+#TOC > ul {
+padding-left: 0;
+}
+#TOC a:not(:hover) {
+text-decoration: none;
+}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+  <script>
+      window.MathJax = {
+          loader: { load: ['input/mml', 'output/chtml'] }
+      };
+  </script>
+  <script data-external="1" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Accessible Complex Tables</h1>
+<p class="subtitle">using Pandoc flavored Markdown</p>
+<p class="author">Diandra M Rivera</p>
+<p class="date">10/14/2026</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<h2 id="toc-title">Contents</h2>
+<ul>
+<li><a href="#sec:simple" id="toc-sec:simple">A Simple Table</a></li>
+<li><a href="#complex-tables" id="toc-complex-tables">Complex Tables</a>
+<ul>
+<li><a href="#example-1-column-subheaders" id="toc-example-1-column-subheaders">Example 1: Column
+Subheaders</a></li>
+<li><a href="#example-2-row-subheaders" id="toc-example-2-row-subheaders">Example 2: Row Subheaders</a></li>
+<li><a href="#example-3-justification" id="toc-example-3-justification">Example 3: Justification</a></li>
+</ul></li>
+<li><a href="#practice" id="toc-practice">Practice</a></li>
+</ul>
+</nav>
+<h1 id="sec:simple">A Simple Table</h1>
+<p>The <a href="https://diandramrivera.github.io/xsability/MathRemediation.html#sec:bestpractices">best
+practices section</a> in the main training briefly stated the formatting
+requirements for ‘simple’ tables. We call a table ‘simple’ if</p>
+<ol type="1">
+<li>The only headers are column headers</li>
+<li>Every column header corresponds to <strong>exactly one</strong>
+table column</li>
+</ol>
+<p>To write such a table, we “draw” it according to certain rules using
+spaces, pipes (e.g. <code>|</code>), hyphens (e.g. <code>-</code>), and
+colons (e.g. <code>:</code>) to specify the columns, rows, and
+justification, respectively. The rules are:</p>
+<ol type="1">
+<li>The first row <em>always</em> consists of column headers</li>
+<li>The second row <em>always</em> defines formatting</li>
+<li>Every other row <em>must</em> have the same number of pipes
+(e.g. <code>|</code> ) as the first row</li>
+<li>The pipes need not be aligned</li>
+<li>The caption and cross reference go at the bottom, after one blank
+line.</li>
+<li>One white space must be between each piece of text and the
+proceeding pipe.</li>
+</ol>
+<p>For example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column 1 <span class="pp">|</span> Column 2 <span class="pp">|</span> Column 3 <span class="pp">|</span> Column 4 <span class="pp">|</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="pp">| ---:</span> <span class="pp">| :---:</span> <span class="pp">| :---:</span> <span class="pp">| :---</span> <span class="pp">|</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Row 1 <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span> Col 1 <span class="pp">|</span> Row 1 <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span> Col 2 <span class="pp">|</span> Row 1 <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span> Col 3 <span class="pp">|</span> Row 1 <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span> Col 4 <span class="pp">|</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Row 2 <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span> Col 1 <span class="pp">|</span> Row 2 <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span> Col 2 <span class="pp">|</span> Row 2 ....... Col 3 <span class="pp">|</span> Row 2  - Col 4 <span class="pp">|</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Row 3 <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span> Col 1 <span class="pp">|</span> Row 3 <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span> Col 2 <span class="pp">|</span> Row 3 <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span> Col 3 <span class="pp">|</span> Row 3 <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span> Col 4 <span class="pp">|</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>: A simple table {#tbl:simpletable}</span></code></pre></div>
+<p>is syntax for a simple table; let’s break down what it means row by
+row:</p>
+<ol type="1">
+<li><code>| Column 1 | Column 2 | Column 3 | Column 4 |</code> is a row
+of column headers, most boringly named “Column #”. How do we know this?
+Because it’s the first row of the table. <strong>THE FIRST ROW OF THE
+TABLE ALWAYS CONSISTS OF HEADERS</strong>.</li>
+<li><code>| ---: | :---: | :---: | :--- |</code> specifies justification
+in the columns. <code>--:</code> is right justified. <code>:--</code> is
+left justified, and <code>:---:</code> is center justified. <strong>THE
+SECOND ROW MUST ALWAYS SPECIFY FORMATTING</strong>.</li>
+<li>The rest of the table is the body. <em>Every row has the same number
+of pipes as the first</em>. Notice how the pipes are not aligned! This
+is okay - Pandoc will format the table for us.</li>
+<li><code>: A simple table {#tbl:simpletable}</code> specifies the table
+“caption” (really, a title or a short descriptive blurb) and the pandoc
+crossref markup for making tables cross-referenceable. The single white
+space between <code>{#tbl:simpletable}</code> is required.</li>
+</ol>
+<p>Such markup produces the following table:</p>
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 27%" />
+<col style="width: 27%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;">Column 1</th>
+<th style="text-align: center;">Column 2</th>
+<th style="text-align: center;">Column 3</th>
+<th style="text-align: left;">Column 4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">Row 1 <br> Col 1</td>
+<td style="text-align: center;">Row 1 <br> Col 2</td>
+<td style="text-align: center;">Row 1 <br> Col 3</td>
+<td style="text-align: left;">Row 1 <br> Col 4</td>
+</tr>
+<tr>
+<td style="text-align: right;">Row 2 <br> Col 1</td>
+<td style="text-align: center;">Row 2 <br> Col 2</td>
+<td style="text-align: center;">Row 2 ……. Col 3</td>
+<td style="text-align: left;">Row 2 - Col 4</td>
+</tr>
+<tr>
+<td style="text-align: right;">Row 3 <br> Col 1</td>
+<td style="text-align: center;">Row 3 <br> Col 2</td>
+<td style="text-align: center;">Row 3 <br> Col 3</td>
+<td style="text-align: left;">Row 3 <br> Col 4</td>
+</tr>
+</tbody>
+</table>
+<p>that is cross-referenceable with <code>@tbl:simpletable</code> and
+has right and left justified first and last columns, respectively.</p>
+<p>This is all well and good, and the world would be a lot simpler if it
+only needed simple tables to describe.</p>
+<h1 id="complex-tables">Complex Tables</h1>
+<p>We call a table complex if</p>
+<ol type="1">
+<li>it has subheaders</li>
+<li>any cell or header corresponds to more than one column or row.</li>
+</ol>
+<p>Writing such a table with Pandoc Markdown is possible using all the
+markup in <a href="#sec:simple">sec. 1</a> <em>and</em> plus and equals
+signs (e.g. <code>+</code> and <code>=</code>), and some modifications
+to our rules</p>
+<ol type="1">
+<li>The first row/column is the header row/column</li>
+<li>The equals sign marks the end of all column headers</li>
+<li>Table/cell corners are specified by plus signs</li>
+<li>Justification is specified with bottom corners of header row</li>
+<li>Alignment of pipes and plus signs <em>matters</em></li>
+<li>One white space must be between each piece of text and the
+proceeding pipe, as before.</li>
+</ol>
+<p>Unlike in <a href="#sec:simple">sec. 1</a>, the complex table we draw
+is the complex table we get, and <strong>formatting
+matters</strong>.</p>
+<h2 id="example-1-column-subheaders">Example 1: Column Subheaders</h2>
+<p>For example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>+--------------+---------------------------------+</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Col 1        <span class="pp">|</span> Col 2                           <span class="pp">|</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>              +----------+-------------+--------+</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>              <span class="pp">|</span> Col 2a   <span class="pp">|</span> Col 2b      <span class="pp">|</span> Col 3c <span class="pp">|</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>+============<span class="al">==+==========+=============+==</span>======+</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Row 2        <span class="pp">|</span> D:       <span class="pp">|</span> :D          <span class="pp">|</span> :O     <span class="pp">|</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>+--------------+----------+-------------+--------+</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Row 3        <span class="pp">|</span> C:       <span class="pp">|</span> :<span class="pp">|</span>          <span class="pp">|</span> :C     <span class="pp">|</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>+--------------+----------+-------------+--------+</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Row 4        <span class="pp">|</span> &lt;(**&lt;)   | (&gt;**)&gt;      | &lt;**&gt;   <span class="pp">|</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>+--------------+----------+-------------+--------+</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>: Our first complex table! {#tbl:firstcomplex}</span></code></pre></div>
+<p>is how to write a complex table in markdown. Lets see if it obeys our
+rules:</p>
+<ol type="1">
+<li><p>The first row:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>+--------------+---------------------------------+</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Col 1        <span class="pp">|</span> Col 2                           <span class="pp">|</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>              +----------+-------------+--------+</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>              <span class="pp">|</span> Col 2a   <span class="pp">|</span> Col 2b      <span class="pp">|</span> Col 3c <span class="pp">|</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>+============<span class="al">==+==========+=============+==</span>======+</span></code></pre></div>
+<p>consists of only column headers <em>even though some of those may be
+subheaders</em>. We also notice that this column header row is
+terminated by equals signs on the bottom. Further, each cell has
+<code>+</code>’s for corners, and follows the white space rules.
+<strong>This row should work in a complex table</strong></p>
+<ol type="1">
+<li>The first column, on the other hand:</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>+--------------+</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Col 1        <span class="pp">|</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>              +</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>              <span class="pp">|</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>+==============+</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Row 2        <span class="pp">|</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>+--------------+</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Row 3        <span class="pp">|</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>+--------------+</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Row 4        <span class="pp">|</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>+--------------+</span></code></pre></div>
+<p>does not have an nested headings (we will return to this), and does
+not have an extra markup specifying that the row cells here are indeed
+headers. However, it follows all of our rules. <strong>This column
+should work in a complex table</strong>.</p></li>
+</ol>
+<p>I’ll leave it up to you to double check that</p>
+<ol type="1">
+<li>every cell corner is denoted by a <code>+</code> sign</li>
+<li>all of the <code>+</code>’s and <code>|</code>’s are aligned.</li>
+</ol>
+<p>The markup produces the following complex table:</p>
+<table id="tbl:firstcomplex" style="width:68%;">
+<caption>Table 1: Our first complex table!</caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 19%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr>
+<th rowspan="2">Col 1</th>
+<th colspan="3">Col 2</th>
+</tr>
+<tr>
+<th>Col 2a</th>
+<th>Col 2b</th>
+<th>Col 3c</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Row 2</td>
+<td>D:</td>
+<td>:D</td>
+<td>:O</td>
+</tr>
+<tr>
+<td>Row 3</td>
+<td>C:</td>
+<td>:|</td>
+<td>:C</td>
+</tr>
+<tr>
+<td>Row 4</td>
+<td>&lt;(**&lt;)</td>
+<td>(&gt;**)&gt;</td>
+<td>&lt;**&gt;</td>
+</tr>
+</tbody>
+</table>
+<p>Now, <a href="#tbl:firstcomplex">tbl. 1</a> is cross-referenceable
+using <code>@tbl:firstcomplex</code>, and we have made our first complex
+table. Disclaimer: the markdown preview enhanced window doesn’t render
+complex tables, because that’s Pandoc’s job. You’ll be able to see the
+final table int he HTML file, just like the references.</p>
+<h2 id="example-2-row-subheaders">Example 2: Row Subheaders</h2>
+<p>Now, Say we wanted to add a single row header to <a href="#tbl:firstcomplex">tbl. 1</a>. What do we do? We draw it in
+manually:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>+----------------+---------------------------------+</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Col 1          <span class="pp">|</span> Col 2                           <span class="pp">|</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>                +----------+-------------+--------+</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>                <span class="pp">|</span> Col 2a   <span class="pp">|</span> Col 2b      <span class="pp">|</span> Col 3c <span class="pp">|</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>+=====<span class="al">==+========+==========+=============+==</span>======+</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>       <span class="pp">|</span> Row 2a <span class="pp">|</span> D:       <span class="pp">|</span> :D          <span class="pp">|</span> :O     <span class="pp">|</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ss">+       </span>+--------+----------+-------------+--------+</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>| Row 2 | Row 2b | C:       | :|          | :C     |</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="ss">+       </span>+--------+----------+-------------+--------+</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>|       | Row 2c | &lt;(**&lt;)   | (&gt;**)&gt;      | &lt;**&gt;   |</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>+-------+--------+----------+-------------+--------+</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>: Row headers in a complex table {#tbl:secondcomplex}</span></code></pre></div>
+<p>Notice how we had to “update” the rest of the table to be properly
+aligned - that is , pipes in-line with pipes and all corners specified
+by a <code>+</code>. This can seem a little daunting at first, but with
+a little practice you’ll find a way that makes sense to you.</p>
+<p>That markup produces <a href="#tbl:secondcomplex">tbl. 2</a>:</p>
+<table id="tbl:secondcomplex" style="width:71%;">
+<caption>Table 2: Row headers in a complex table</caption>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 12%" />
+<col style="width: 15%" />
+<col style="width: 19%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr>
+<th colspan="2" rowspan="2">Col 1</th>
+<th colspan="3">Col 2</th>
+</tr>
+<tr>
+<th>Col 2a</th>
+<th>Col 2b</th>
+<th>Col 3c</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="3">Row 2</td>
+<td>Row 2a</td>
+<td>D:</td>
+<td>:D</td>
+<td>:O</td>
+</tr>
+<tr>
+<td>Row 2b</td>
+<td>C:</td>
+<td>:|</td>
+<td>:C</td>
+</tr>
+<tr>
+<td>Row 2c</td>
+<td>&lt;(**&lt;)</td>
+<td>(&gt;**)&gt;</td>
+<td>&lt;**&gt;</td>
+</tr>
+</tbody>
+</table>
+<p>which is cross-referenceable using
+<code>@tbl:secondcomplex</code>.</p>
+<h2 id="example-3-justification">Example 3: Justification</h2>
+<p>Lets take the previous table and ask that</p>
+<p>A. Column 2a right justified B. Column 2b be center justified C.
+Column 2c be left justified</p>
+<p>We make the following changes:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>+----------------+---------------------------------+</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Col 1          <span class="pp">|</span> Col 2                           <span class="pp">|</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>                +----------+-------------+--------+</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>                <span class="pp">|</span> Col 2a   <span class="pp">|</span> Col 2b      <span class="pp">|</span> Col 3c <span class="pp">|</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>+=====<span class="al">==+========+==========+=============+==</span>======+</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>       <span class="pp">|</span> Row 2a <span class="pp">|</span> D:       <span class="pp">|</span> :D          <span class="pp">|</span> :O     <span class="pp">|</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="ss">+       </span>+--------+----------+-------------+--------+</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>| Row 2 | Row 2b | C:       | :|          | :C     |</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="ss">+       </span>+--------+----------+-------------+--------+</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>|       | Row 2c | &lt;(**&lt;)   | (&gt;**)&gt;      | &lt;**&gt;   |</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>+-------+--------+----------+-------------+--------+</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>: Now we&#39;re formatting! {#tbl:formatcomplex}</span></code></pre></div>
+<p>what did we do? We added colons next to the plus signs that terminate
+the column header row (a mouthful, for sure). Let’s see if we can make
+further sense of it:</p>
+<ol type="1">
+<li><code>+====:+</code> is a right justified column. We can tell
+because the colon is to the right.</li>
+<li><code>+:======+</code> is a left justified column. The colon is to
+the left.</li>
+<li><code>+:-----:+</code> is center justified. It has colons on the
+left and right.</li>
+</ol>
+<p>Our markup produces <a href="#tbl:formatcomplex">tbl. 3</a>:</p>
+<table id="tbl:formatcomplex" style="width:71%;">
+<caption>Table 3: Now we’re formatting!</caption>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 12%" />
+<col style="width: 15%" />
+<col style="width: 19%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr>
+<th colspan="2" rowspan="2">Col 1</th>
+<th colspan="3" style="text-align: center;">Col 2</th>
+</tr>
+<tr>
+<th style="text-align: center;">Col 2a</th>
+<th style="text-align: center;">Col 2b</th>
+<th style="text-align: center;">Col 3c</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="3">Row 2</td>
+<td>Row 2a</td>
+<td style="text-align: center;">D:</td>
+<td style="text-align: center;">:D</td>
+<td style="text-align: center;">:O</td>
+</tr>
+<tr>
+<td>Row 2b</td>
+<td style="text-align: center;">C:</td>
+<td style="text-align: center;">:|</td>
+<td style="text-align: center;">:C</td>
+</tr>
+<tr>
+<td>Row 2c</td>
+<td style="text-align: center;">&lt;(**&lt;)</td>
+<td style="text-align: center;">(&gt;**)&gt;</td>
+<td style="text-align: center;">&lt;**&gt;</td>
+</tr>
+</tbody>
+</table>
+<p>which can be cross-referenced used
+<code>@:tbl:formatcomplex</code></p>
+<h1 id="practice">Practice</h1>
+<p>Your goal is to remediate this <a href="https://diandramrivera.github.io/xsability/statisticalchonk.pdf">practice
+homework</a>, which contains one figure, one complex table, and no math.
+Reach out if you get stuck!!!</p>
+</body>
+</html>
